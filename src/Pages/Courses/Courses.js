@@ -2,25 +2,25 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Cards from '../Cards/Cards';
 import LeftSide from '../LeftSide/LeftSide';
-import { useLoaderData, Outlet } from 'react-router-dom';
+import { useLoaderData,} from 'react-router-dom';
 const Courses = () => {
     const data = useLoaderData();
     console.log(data);
     return (
-			<div>
+			<div className="container">
 				<h2>THis is courses</h2>
 				<Container>
 					<Row>
-						<Col lg="2" className="d-none d-lg-block">
+						<Col lg="3" className="d-none d-lg-block">
 							<LeftSide></LeftSide>
-                        <Outlet></Outlet>
 						</Col>
-						<Col lg="7">
-                        {
-                            data.map(course => <Cards key={course.id} course={course}></Cards>)
-                        }
+						<Col lg="9" className="container">
+							<div className="d-flex gap-4 flex-wrap justify-content-center">
+								{data.map((course) => (
+									<Cards key={course.id} course={course}></Cards>
+								))}
+							</div>
 						</Col>
-						
 					</Row>
 				</Container>
 			</div>

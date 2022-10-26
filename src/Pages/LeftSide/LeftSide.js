@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Courses from '../Courses/Courses';
+
 const LeftSide = () => {
     const [categories, setCategories] = useState([]);
 
