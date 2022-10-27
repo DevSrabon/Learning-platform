@@ -14,9 +14,10 @@ const LeftSide = () => {
 			<div>
 				<h4>All Categories: {categories.length}</h4>
 				<div>
-					{categories.map((Courses) => (
-						<p key={Courses.id}>
-							<Link to={`/courses/${Courses.id}`}>{Courses.name}</Link>
+					{categories.map((courses) => (
+						<p key={courses.id}
+						courses={courses}>
+							<Link to={`/courses/${courses.id}`}>{courses.name}</Link>
 						</p>
 					))}
 				</div>

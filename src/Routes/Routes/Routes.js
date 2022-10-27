@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Main/Main";
 import Blog from "../../Pages/Blog/Blog";
+import CardMatch from "../../Pages/CardMatch/CardMatch";
 
-import Card from "../../Pages/Card/Card";
 import Courses from "../../Pages/Courses/Courses";
+import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 
 
 import Home from "../../Pages/Home/Home";
@@ -26,9 +27,15 @@ export const routes = createBrowserRouter([
 			},
 			{
 				path: '/courses/:id',
-				element:<Card></Card>,
+				element:<CardMatch></CardMatch>,
 				loader: ({ params }) =>
 					fetch(`http://localhost:5000/courses/${params.id}`),
+			},
+			{
+				path: '/courses/details/:id',
+				element:<CourseDetails></CourseDetails>,
+				loader: ({ params }) =>
+					fetch(`http://localhost:5000/courses/details/${params.id}`),
 			},
 			{
 				path: '/blog',
