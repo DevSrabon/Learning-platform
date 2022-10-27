@@ -14,7 +14,7 @@ const CourseDetails = () => {
 						<p>
 							<span className="fw-bold">Introduction:</span> {intro}
 						</p>
-						<div className="bg-info p-4 rounded">
+						<div className="bg-light p-5 rounded">
 							<h3 className="text-secondary mt-4">{subtitle_1}:</h3>
 							<h4 className="mt-4 text-center text-success">
 								{variable.title_1}
@@ -28,8 +28,8 @@ const CourseDetails = () => {
 								{variable.title_3}
 							</h4>
 							<p>{variable.details_3}</p>
-						</div>
-						<div className="bg-info p-4 rounded mt-4">
+					</div>
+						<div className="bg-light p-5 rounded mt-5">
 							<h3 className="text-secondary mt-4">{subtitle_2}:</h3>
 							<h4 className="mt-4 text-center text-success">{loop.title_1}</h4>
 							<p>{loop.details_1}</p>
@@ -38,7 +38,7 @@ const CourseDetails = () => {
 							<h4 className="mt-4 text-center text-success">{loop.title_3}</h4>
 							<p>{loop.details_3}</p>
 						</div>
-						<div className="bg-info p-4 rounded mt-4">
+						<div className="bg-light p-5 rounded mt-5">
 							<h3 className="text-secondary mt-4">{subtitle_3}:</h3>
 							<h4 className="mt-4 text-center text-success">{array.title_1}</h4>
 							<p>{array.details_1}</p>
@@ -47,7 +47,7 @@ const CourseDetails = () => {
 							<h4 className="mt-4 text-center text-success">{array.title_3}</h4>
 							<p>{array.details_3}</p>
 						</div>
-						<div className="bg-info p-4 rounded mt-4">
+						<div className="bg-light p-5 rounded mt-5">
 							<h3 className="text-secondary mt-4">{subtitle_4}:</h3>
 							<h4 className="mt-4 text-center text-success">{func.title_1}</h4>
 							<p>{func.details_1}</p>
@@ -56,7 +56,7 @@ const CourseDetails = () => {
 							<h4 className="mt-4 text-center text-success">{func.title_3}</h4>
 							<p>{func.details_3}</p>
 						</div>
-						<div className="bg-info p-4 rounded my-4">
+						<div className="bg-light p-5 rounded my-5">
 							<h3 className="text-secondary mt-4">{subtitle_5}:</h3>
 							<h4 className="mt-4 text-center text-success">{objects.title_1}</h4>
 							<p>{objects.details_1}</p>

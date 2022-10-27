@@ -8,7 +8,7 @@ const Courses = () => {
     console.log(data);
     return (
 			<div className="container">
-				<h2>THis is courses</h2>
+				<h3 className='text-warning'>Courses Categories</h3>
 				<Container>
 					<Row>
 						<Col lg="3" className="d-none d-lg-block">

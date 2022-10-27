@@ -9,7 +9,7 @@ const ref = React.createRef();
 const CardMatch = () => {
 
     const detail = useLoaderData();
-	console.log(detail);
+	
     return (
 			<div>
 				<Container>
@@ -18,7 +18,6 @@ const CardMatch = () => {
 							<LeftSide></LeftSide>
 						</Col>
 						<Col lg="9" ref={ref}>
-							<div>
 								<Card
 									className="shadow-lg"
 									style={{ width: '20rem', margin: '20px auto' }}
@@ -33,9 +32,12 @@ const CardMatch = () => {
 										<Card.Text>
 											<b>Short Intro: </b> {detail.intro}
 										</Card.Text>
+									<Card.Text className="d-flex justify-content-between">
+										<small>Duration: {detail.duration}</small>
+										<small>Review: {detail.review}k</small>
+									</Card.Text>
 									</Card.Body>
-
-									<Pdf targetRef={ref} filename="div-blue.pdf">
+									<Pdf targetRef={ref} filename="File.pdf">
 										{({ toPdf }) => (
 											<Button
 												onClick={toPdf}
@@ -57,7 +59,6 @@ const CardMatch = () => {
 										</Link>
 									</Card.Footer>
 								</Card>
-							</div>
 						</Col>
 					</Row>
 				</Container>

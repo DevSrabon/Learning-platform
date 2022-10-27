@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 const Cards = ({ course }) => {
     const { id, img, name, price, intro, review, duration } = course;
 	return (
-		<Card style={{ width: '18rem' }}>
+		<Card className='shadow-lg mb-4' style={{ width: '18rem' }}>
 			<Card.Img
 				variant="top"
 				style={{ width: '100%', height: '190px' }}
