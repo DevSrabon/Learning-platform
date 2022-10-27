@@ -10,6 +10,7 @@ import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import Home from "../../Pages/Home/Home";
 import LogIn from "../../Pages/LogIn/LogIn";
 import Registration from "../../Pages/Registration/Registration";
+import PrivetRoutes from "../PrivetRoutes/PrivetRoutes";
 
 export const routes = createBrowserRouter([
 	{
@@ -27,13 +28,17 @@ export const routes = createBrowserRouter([
 			},
 			{
 				path: '/courses/:id',
-				element:<CardMatch></CardMatch>,
+				element: <CardMatch></CardMatch>,
 				loader: ({ params }) =>
 					fetch(`http://localhost:5000/courses/${params.id}`),
 			},
 			{
 				path: '/courses/details/:id',
-				element:<CourseDetails></CourseDetails>,
+				element: (
+					<PrivetRoutes>
+						<CourseDetails></CourseDetails>
+					</PrivetRoutes>
+				),
 				loader: ({ params }) =>
 					fetch(`http://localhost:5000/courses/details/${params.id}`),
 			},
