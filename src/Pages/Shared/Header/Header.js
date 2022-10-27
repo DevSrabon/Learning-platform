@@ -95,17 +95,24 @@ const Header = () => {
 										placement="bottom"
 										overlay={
 											<Tooltip id="button-tooltip-2">
-												Check out this avatar
+												{user.displayName}
 											</Tooltip>
 										}
 									>
 										{({ ref, ...triggerHandler }) => (
-											<Image
-												tool
-												style={{ height: '40px' }}
-												src={user.photoURL}
-												roundedCircle
-											></Image>
+											<Button
+												variant="light"
+												{...triggerHandler}
+												className="d-inline-flex align-items-center"
+											>
+												<Image
+													ref={ref}
+													tool
+													style={{ height: '40px' }}
+													src={user.photoURL}
+													roundedCircle
+												></Image>
+											</Button>
 										)}
 									</OverlayTrigger>
 								) : (
