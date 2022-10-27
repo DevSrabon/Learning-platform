@@ -9,9 +9,13 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import { useState } from 'react';
 const Header = () => {
+	const [color, setColor] = useState(true);
 	const { user, logOut } = useContext(AuthContext);
-
+	const handleDarkMode = () => {
+		setColor(!color);
+	}
 	const handleLogOut = () => {
 		logOut()
 			.then(() => {})
@@ -20,8 +24,8 @@ const Header = () => {
 	return (
 		<div>
 			<Navbar
+				className={`${color === true ? 'bg-light' : 'bg-dark'}`}
 				collapseOnSelect
-				className="mb-4"
 				expand="lg"
 				bg="light"
 				variant="light"
@@ -120,7 +124,9 @@ const Header = () => {
 								)}
 							</Link>
 						</Nav>
-						<Nav></Nav>
+						<div className="ms-2">
+							<Button variant="outline-dark" onClick={handleDarkMode}>Dark Mode</Button>
+						</div>
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
