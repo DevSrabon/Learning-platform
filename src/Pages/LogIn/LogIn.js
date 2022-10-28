@@ -7,7 +7,8 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const LogIn = () => {
 
 	 const [error, setError] = useState('');
-		const { signIn, setLoading } = useContext(AuthContext);
+		const { signIn, setLoading, signInWithGoogle, signInWithGithub } =
+			useContext(AuthContext);
 		const navigate = useNavigate();
 		const location = useLocation();
 
@@ -38,7 +39,17 @@ const LogIn = () => {
 				.finally(() => {
 					setLoading(false);
 				});
-		};
+	};
+	const handleGoogleSignIn = () => {
+		signInWithGoogle()
+			.then(result => console.log(result.user))
+		.catch(er =>console.error(er))
+	}
+	const handleGithub = () => {
+		signInWithGithub()
+			.then(result => console.log(result.user))
+		.catch(er => console.error(er))
+	}
 
 	return (
 		<div className="container">
@@ -61,14 +72,23 @@ const LogIn = () => {
 						placeholder="Password"
 					/>
 				</Form.Group>
-				<Form.Text className="text-danger">{error}</Form.Text>
 				<Button variant="success" type="submit">
 					Submit
 				</Button>
+				<Form.Text className="text-danger">{error}</Form.Text>
 			</Form>
 			<>
-				New here? please <Link to="/register">Register</Link>
+				New here? please <Link to="/register">Register</Link> or
 			</>
+			<br />
+			<div className='mt-3'>
+				<Button onClick={handleGoogleSignIn} className="btn-info">
+					Google Sign in
+				</Button>
+				<Button onClick={handleGithub} className="btn-info ms-2">
+					Github Sign in
+				</Button>
+			</div>
 		</div>
 	);
 };

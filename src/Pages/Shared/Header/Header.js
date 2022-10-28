@@ -120,12 +120,16 @@ const Header = () => {
 										)}
 									</OverlayTrigger>
 								) : (
-									<FaUser />
+									<span className='text-info fw-bold'>
+										<FaUser />
+									</span>
 								)}
 							</Link>
 						</Nav>
-						<div className="ms-2">
-							<Button variant="outline-dark" onClick={handleDarkMode}>Dark Mode</Button>
+						<div className="ms-3">
+							<Button variant="outline-dark" onClick={handleDarkMode}>
+								Dark Mode
+							</Button>
 						</div>
 					</Navbar.Collapse>
 				</Container>

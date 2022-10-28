@@ -24,13 +24,13 @@ export const routes = createBrowserRouter([
 			{
 				path: '/courses',
 				element: <Courses></Courses>,
-				loader: () => fetch('http://localhost:5000/courses'),
+				loader: () => fetch('https://assignment10-server-chi.vercel.app/courses'),
 			},
 			{
 				path: '/courses/:id',
 				element: <CardMatch></CardMatch>,
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/courses/${params.id}`),
+					fetch(`https://assignment10-server-chi.vercel.app/courses/${params.id}`),
 			},
 			{
 				path: '/courses/details/:id',
