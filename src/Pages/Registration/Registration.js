@@ -51,7 +51,10 @@ const Registration = () => {
 	};
 	return (
 		<div>
-			<div className="container">
+			<div
+				className="container my-5 bg-info p-5 rounded text-white"
+				style={{ width: '30%' }}
+			>
 				<Form onSubmit={handleSubmit}>
 					<Form.Group className="mb-3" controlId="formBasicEmail">
 						<Form.Label>Your name</Form.Label>
@@ -85,9 +88,11 @@ const Registration = () => {
 						/>
 					</Form.Group>
 					<Form.Text className="text-danger">{error}</Form.Text>
-					<Button variant="success" type="submit">
-						Submit
-					</Button>
+					<Link to="/login">
+						<Button variant="success" type="submit">
+							Submit
+						</Button>
+					</Link>
 				</Form>
 				<>
 					Already register? please <Link to="/login">Login</Link>

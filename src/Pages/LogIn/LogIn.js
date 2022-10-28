@@ -52,7 +52,7 @@ const LogIn = () => {
 	}
 
 	return (
-		<div className="container">
+		<div className='container my-5 bg-info p-5 rounded text-white' style={{width:'30%'}}>
 			<Form onSubmit={handleSubmit}>
 				<Form.Group className="mb-3" controlId="formBasicEmail">
 					<Form.Label>Email address</Form.Label>
@@ -82,10 +82,10 @@ const LogIn = () => {
 			</>
 			<br />
 			<div className='mt-3'>
-				<Button onClick={handleGoogleSignIn} className="btn-info">
+				<Button onClick={handleGoogleSignIn} className="btn-success">
 					Google Sign in
 				</Button>
-				<Button onClick={handleGithub} className="btn-info ms-2">
+				<Button onClick={handleGithub} className="btn-success ms-2">
 					Github Sign in
 				</Button>
 			</div>

@@ -65,6 +65,14 @@ const Header = () => {
 									Blog
 								</Link>
 							</>
+							<>
+								<Link
+									className="me-3 text-decoration-none text-info fw-bold"
+									to="/faq"
+								>
+									FAQ
+								</Link>
+							</>
 
 							<div className="d-lg-none mt-3">
 								<LeftSide></LeftSide>
