@@ -5,54 +5,56 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const LogIn = () => {
+	const [error, setError] = useState('');
+	const { signIn, setLoading, signInWithGoogle, signInWithGithub } =
+		useContext(AuthContext);
+	const navigate = useNavigate();
+	const location = useLocation();
 
-	 const [error, setError] = useState('');
-		const { signIn, setLoading, signInWithGoogle, signInWithGithub } =
-			useContext(AuthContext);
-		const navigate = useNavigate();
-		const location = useLocation();
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const form = e.target;
+		const email = form.email.value;
+		const password = form.password.value;
 
-		const handleSubmit = (e) => {
-			e.preventDefault();
-			const form = e.target;
-			const email = form.email.value;
-			const password = form.password.value;
+		const from = location.state?.from?.pathname || '/';
 
-			const from = location.state?.from?.pathname || '/';
-
-			signIn(email, password)
-				.then((userCredential) => {
-					const user = userCredential.user;
-					console.log(user);
-					form.reset();
-					setError('');
-					if (user.emailVerified) {
-						navigate(from, { replace: true });
-					} else {
-						toast.error('Your email is not verified. Please Verify!!');
-					}
-				})
-				.catch((error) => {
-					console.error(error);
-					setError(error.message);
-				})
-				.finally(() => {
-					setLoading(false);
-				});
+		signIn(email, password)
+			.then((userCredential) => {
+				const user = userCredential.user;
+				console.log(user);
+				form.reset();
+				setError('');
+				if (user.emailVerified) {
+					navigate(from, { replace: true });
+				} else {
+					toast.error('Your email is not verified. Please Verify!!');
+				}
+			})
+			.catch((error) => {
+				console.error(error);
+				setError(error.message);
+			})
+			.finally(() => {
+				setLoading(false);
+			});
 	};
 	const handleGoogleSignIn = () => {
 		signInWithGoogle()
-			.then(result => console.log(result.user))
-		.catch(er =>console.error(er))
-	}
+			.then((result) => console.log(result.user))
+			.catch((er) => console.error(er));
+	};
 	const handleGithub = () => {
 		signInWithGithub()
-			.then(result => console.log(result.user))
-		.catch(er => console.error(er))
-	}
+			.then((result) => console.log(result.user))
+			.catch((er) => console.error(er));
+	};
 
 	return (
-		<div className='container my-5 bg-info p-5 rounded text-white' style={{width:'30%'}}>
+		<div
+			className="container my-5 bg-info p-5 rounded text-white"
+			style={{ width: '30%' }}
+		>
 			<Form onSubmit={handleSubmit}>
 				<Form.Group className="mb-3" controlId="formBasicEmail">
 					<Form.Label>Email address</Form.Label>
@@ -81,7 +83,7 @@ const LogIn = () => {
 				New here? please <Link to="/register">Register</Link> or
 			</>
 			<br />
-			<div className='mt-3'>
+			<div className="mt-3">
 				<Button onClick={handleGoogleSignIn} className="btn-success">
 					Google Sign in
 				</Button>

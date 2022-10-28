@@ -7,10 +7,10 @@ const PrivetRoutes = ({ children }) => {
 	const { user, loading } = useContext(AuthContext);
 	const location = useLocation();
 	if (loading) {
-		return <Spinner animation="border" variant="primary" />;
+		return <Spinner animation="border" variant="info" />;
 	}
 	if (!user) {
-		return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
+		return <Navigate to="/login" state={{ from: location, }} replace></Navigate>;
 	}
 	return children;
 };

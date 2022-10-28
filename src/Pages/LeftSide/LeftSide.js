@@ -12,6 +12,7 @@ const LeftSide = () => {
 	}, []);
 	return (
 		<div>
+			<h3 className="text-warning">Courses Categories</h3>
 			{categories.map((courses) => (
 				<div className="mb-3" key={courses.id} courses={courses}>
 					<Link

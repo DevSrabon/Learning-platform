@@ -5,11 +5,10 @@ import LeftSide from '../LeftSide/LeftSide';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Pdf from 'react-to-pdf'
+
 const ref = React.createRef();
 const CardMatch = () => {
-
-    const detail = useLoaderData();
-	
+	const detail = useLoaderData();
     return (
 			<div>
 				<Container>
@@ -47,9 +46,11 @@ const CardMatch = () => {
 										</Button>
 									)}
 								</Pdf>
-								<Button variant="success" className="w-100 mt-1">
-									Add to cart
-								</Button>
+								<Link to={`/courses/details/checkout/${detail.id}`}>
+									<Button variant="success" className="w-100 mt-1">
+										Add to cart
+									</Button>
+								</Link>
 								<Card.Footer className="p-0 outlet-none mt-1">
 									<Link to={`/courses/details/${detail.id}`}>
 										<Button variant="success" className="w-100">

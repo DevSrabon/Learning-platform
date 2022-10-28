@@ -40,11 +40,11 @@ const AuthProvider = ({ children }) => {
 		return sendEmailVerification(auth.currentUser);
 	};
 	const signInWithGoogle = () => {
-		return signInWithPopup(auth, googleProvider)
-	}
+		return signInWithPopup(auth, googleProvider);
+	};
 	const signInWithGithub = () => {
-		return signInWithPopup(auth, githubProvider)
-	}
+		return signInWithPopup(auth, githubProvider);
+	};
 	const logOut = () => {
 		setLoading(true);
 		return signOut(auth);
@@ -75,7 +75,7 @@ const AuthProvider = ({ children }) => {
 		verifyEmail,
 		setLoading,
 		signInWithGoogle,
-		signInWithGithub
+		signInWithGithub,
 	};
 	return (
 		<AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

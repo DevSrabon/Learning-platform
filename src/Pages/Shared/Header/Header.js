@@ -101,7 +101,7 @@ const Header = () => {
 									</>
 								)}
 							</>
-							<Link className="ms-3 text-decoration-none" to="/profile">
+							<Link className="ms-3 text-decoration-none" to="/">
 								{user?.photoURL ? (
 									<OverlayTrigger
 										placement="bottom"
@@ -120,7 +120,7 @@ const Header = () => {
 												<Image
 													ref={ref}
 													tool
-													style={{ height: '40px' }}
+													style={{ height: '40px'}}
 													src={user.photoURL}
 													roundedCircle
 												></Image>
